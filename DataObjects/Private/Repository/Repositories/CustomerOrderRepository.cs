@@ -1,6 +1,7 @@
 ﻿using DataAccess.Private.Models;
 using DataAccess.Private.Repository.Context;
 using DataAccess.Private.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Private.Repository.Repositories
 {
@@ -13,16 +14,10 @@ namespace DataAccess.Private.Repository.Repositories
             _customerOrderContext = new();
         }
 
-        public Task<List<Customer>> GetAllCustomers()
+        public Task<List<Customer>> GetAll()
         {
-            var customers = _customerOrderContext.Customers.ToList();
+            var customers = _customerOrderContext.Customers.Include(c => c.Orders).ToList();
             return Task.FromResult(customers);
-        }
-
-        public Task<List<Order>> GetAllOrders(long customerId)
-        {
-            var Order = _customerOrderContext.Orders.Where(o => o.CustomerId == customerId).ToList();
-            return Task.FromResult(Order);
         }
     }
 }

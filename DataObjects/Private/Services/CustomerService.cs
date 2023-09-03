@@ -15,10 +15,10 @@ namespace DataAccess.Private.Services
         public async Task<List<CustomerOrderDto>> GetAllCustomer()
         {
             var customerOrders = new List<CustomerOrderDto>();
-            var customers = await _customerOrderRepository.GetAllCustomers();
-            if (customers != null && customers.Any())
+            var rawCustomerOrders = await _customerOrderRepository.GetAll();
+            if (rawCustomerOrders != null && rawCustomerOrders.Any())
             {
-                foreach (var customer in customers)
+                foreach (var customer in rawCustomerOrders)
                 {
                     CustomerOrderDto customerData = new()
                     {
@@ -30,11 +30,9 @@ namespace DataAccess.Private.Services
                         },
                         Orders = new()
                     };
-
-                    var orders = await _customerOrderRepository.GetAllOrders(customer.CustomerId);
-                    if (orders != null && orders.Any())
+                    if (customer.Orders != null && customer.Orders.Any())
                     {
-                        foreach (var order in orders)
+                        foreach (var order in customer.Orders)
                         {
                             customerData.Orders.Add(new OrderDto()
                             {
