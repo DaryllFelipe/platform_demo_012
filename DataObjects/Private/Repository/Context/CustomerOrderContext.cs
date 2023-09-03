@@ -10,7 +10,7 @@ namespace DataAccess.Private.Repository.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=LAPTOP-IMEVB5MK\\SQLEXPRESS;Database=PlatformDemo;";
+            var connectionString = "you connection here";
             optionsBuilder.UseSqlServer($"{connectionString}Trusted_Connection=True;TrustServerCertificate=True;");
         }
 
