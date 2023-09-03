@@ -1,0 +1,39 @@
+﻿@using DataAccess.Public.Dto;
+@model List<CustomerOrderDto>
+@{
+    
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Customer Orders</h1>
+
+        @if (Model != null && Model.Any())
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Total Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Customer.Name</td>
+                            <td>@item.Customer.PhoneNumber</td>
+                            <td>@item.Orders.Count</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No data found</p>   
+        }
+    </div>
+</section>
