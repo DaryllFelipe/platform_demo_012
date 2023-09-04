@@ -5,5 +5,6 @@ namespace DataAccess.Public.Interaces.Services
     public interface ICustomerService
     {
         Task<List<CustomerOrderDto>> GetAllCustomer();
+        Task<CustomerOrderDto?> GetByCustomerId(long customerId);
     }
 }

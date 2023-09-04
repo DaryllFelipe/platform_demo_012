@@ -19,6 +19,14 @@ namespace PlatformDemo.Controllers
             return View(customersData);
         }
 
+        [HttpGet]
+        [Route("orders/{id}")]
+        public async Task<IActionResult> Order(long id)
+        {
+            var customerData = await _customerService.GetByCustomerId(id);
+            return View(customerData);
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -17,6 +17,7 @@
                         <th>Name</th>
                         <th>Phone Number</th>
                         <th>Total Order</th>
+                        <th width="10%"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +26,12 @@
                         <tr>
                             <td>@item.Customer.Name</td>
                             <td>@item.Customer.PhoneNumber</td>
-                            <td>@item.Orders.Count</td>
+                            <td>
+                                @item.Orders.Count 
+                            </td>
+                            <td>
+                                @Html.ActionLink("See Orders", "Order", "Home", new { id = item.Customer.CustomerId }, null)
+                            </td>
                         </tr>
                     }
                 </tbody>

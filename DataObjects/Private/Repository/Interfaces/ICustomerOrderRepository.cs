@@ -5,5 +5,6 @@ namespace DataAccess.Private.Repository.Interfaces
     internal interface ICustomerOrderRepository
     {
         Task<List<Customer>> GetAll();
+        Task<Customer?> Get(long customerId);
     }
 }

@@ -1,0 +1,43 @@
+﻿@using DataAccess.Public.Dto;
+@model CustomerOrderDto
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="section">
+    <div class="container">
+        @if (Model != null)
+        {
+            <h1 class="title">@Model.Customer.Name's Orders</h1>
+            if (Model.Orders.Any())
+            {
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Order#</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Orders)
+                        {
+                            <tr>
+                                <td>@item.OrderNumber</td>
+                                <td>$@item.Amount</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No orders at the moment.</p>
+            }
+        }
+        else
+        {
+            <p>No data found</p>
+        }
+    </div>
+</section>
