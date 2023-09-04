@@ -10,8 +10,7 @@ namespace DataAccess.Private.Repository.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "you connection here";
-            optionsBuilder.UseSqlServer($"{connectionString}Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer($"Server=(localdb)\\MSSQLLocalDB;Database=PlatformDemo;Trusted_Connection=True;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,7 +39,6 @@ namespace DataAccess.Private.Repository.Context
                 new Order { OrderId = 11, Amount = 10.10M, CustomerId = 3, OrderNumber = 11 },
                 new Order {OrderId = 12, Amount = 10.10M, CustomerId = 3, OrderNumber = 12 },
                 new Order {OrderId = 15, Amount = 10.10M, CustomerId = 3, OrderNumber = 15 },
-                new Order { OrderId = 16, Amount = 10.10M, CustomerId = 4, OrderNumber = 16 },
                 new Order {OrderId = 21, Amount = 10.10M, CustomerId = 5, OrderNumber = 21 },
                 new Order {OrderId = 22, Amount = 10.10M, CustomerId = 5, OrderNumber = 22 },
                 new Order { OrderId = 23, Amount = 10.10M, CustomerId = 5, OrderNumber = 23 },

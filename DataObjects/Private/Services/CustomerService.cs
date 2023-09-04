@@ -43,6 +43,10 @@ namespace DataAccess.Private.Services
                             });
                         }
                     }
+                    else
+                    {
+                        customerData.Orders = new List<OrderDto>();
+                    }
                     customerOrders.Add(customerData);
                 }
             }
