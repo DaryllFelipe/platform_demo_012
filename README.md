@@ -19,6 +19,6 @@ To setup the database:
 steps
 #1: In the solution go to Data Access project and set it as the start up project for setting the ef core db context 
 #2: Open the Nuget Package manager console and run the command "Update-Database" 
-step #5: In the solution go to PlatformDemo project and set it as the start up project.
+#3: In the solution go to PlatformDemo project and set it as the start up project.
 
 And now you can run the Solution and test it
